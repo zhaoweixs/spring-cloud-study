@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: oauth2-user-client
+  main:
+    allow-bean-definition-overriding: true
+server:
+  port: 8082
+security:
+  oauth2:
+    client:
+      client-id: user-client
+      client-secret: user-secret-8888
+      user-authorization-uri: http://localhost:8081/oauth/authorize # 授权码模式需要的
+      access-token-uri: http://localhost:8081/oauth/token # 密码模式需要的
+    resource:
+      jwt:
+        key-uri: http://localhost:8081/oauth/token_key
+        key-value: testSignKey
+    authorization:
+      check-token-access: http://localhost:8081/oauth/check_token
